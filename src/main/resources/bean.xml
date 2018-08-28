@@ -10,7 +10,14 @@
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
         <property name="url" value="jdbc:sqlserver://localhost:1433;databasename=dbtest"></property>
-        <property name="username" value="gzh"></property>
+        <property name="username" value="sa"></property>
         <property name="password" value="sa"></property>
     </bean>
+
+    <!--注入AccountDaoImpl中的JdbcTemplate-->
+    <bean id="accountDaoImple" class="com.gzh.dao.impl.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+
+
 </beans>
